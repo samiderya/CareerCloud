@@ -9,5 +9,9 @@ namespace CareerCloud.Pocos
    public class ApplicantResumePoco : IPoco
     {
         public Guid Id { get; set; }
+        public Guid Applicant { get; set; }
+        public string Resume { get; set; }
+        public DateTime LastUpdate { get; set; }
+
     }
 }
