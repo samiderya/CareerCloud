@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1A04EA3D-1A53-4F6A-A582-6EC11875D747}</ProjectGuid>
+    <ProjectGuid>{802C2A68-56B5-41AF-B255-64AF80B9B2BC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CareerCloud.Pocos</RootNamespace>
-    <AssemblyName>CareerCloud.Pocos</AssemblyName>
+    <RootNamespace>CareerCloud.UnitTests.Assignment1Tests</RootNamespace>
+    <AssemblyName>CareerCloud.UnitTests.Assignment1Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MSTest.TestFramework.1.2.0\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -42,27 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicantEducationPoco.cs" />
-    <Compile Include="ApplicantJobApplicationPoco.cs" />
-    <Compile Include="ApplicantProfilePoco.cs" />
-    <Compile Include="ApplicantResumePoco.cs" />
-    <Compile Include="ApplicantWorkHistoryPoco.cs" />
-    <Compile Include="ApplicatSkillPoco.cs" />
-    <Compile Include="ComanyJobDescriptionPoco.cs" />
-    <Compile Include="CompanyDescriptionPoco.cs" />
-    <Compile Include="CompanyJobEducationPoco.cs" />
-    <Compile Include="CompanyJobPoco.cs" />
-    <Compile Include="CompanyJobSkillPoco.cs" />
-    <Compile Include="CompanyLocationPoco.cs" />
-    <Compile Include="CompanyProfilePoco.cs" />
-    <Compile Include="IPoco.cs" />
+    <Compile Include="Assignment1Marking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SecurityLoginLogPoco.cs" />
-    <Compile Include="SecurityLoginPoco.cs" />
-    <Compile Include="SecurityLoginRolePoco.cs" />
-    <Compile Include="SecurityRolePoco.cs" />
-    <Compile Include="SystemCountryCodePoco.cs" />
-    <Compile Include="SystemLanguageCodePoco.cs" />
+    <Compile Include="Utils\GetCharacteristics.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CareerCloud.Pocos\CareerCloud.Pocos.csproj">
+      <Project>{1a04ea3d-1a53-4f6a-a582-6ec11875d747}</Project>
+      <Name>CareerCloud.Pocos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

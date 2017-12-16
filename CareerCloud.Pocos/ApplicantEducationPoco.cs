@@ -12,7 +12,7 @@ namespace CareerCloud.Pocos
     public class ApplicantEducationPoco : IPoco
     {
         [Key]
-        public Guid Id { get; set; }
+        public System.Guid Id { get; set; }
         public Guid Applicant { get; set; }
         public string Major { get; set; }
         [Column("Certificate_Diploma")]
@@ -24,7 +24,7 @@ namespace CareerCloud.Pocos
         [Column("Completion_Percent")]
         public byte? CompletionPercent { get; set; }
         [Column("Time_Stamp")]
-        public byte TimeStamp { get; set; }
+        public byte[] TimeStamp { get; set; }
 
     }
 }

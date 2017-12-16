@@ -18,6 +18,6 @@ namespace CareerCloud.Pocos
         [Column("Application_Date")]
         public DateTime ApplicationDate { get; set; }
         [Column("Time_Stamp")]
-        public byte TimeStamp { get; set; }
+        public byte[] TimeStamp { get; set; }
     }
 }

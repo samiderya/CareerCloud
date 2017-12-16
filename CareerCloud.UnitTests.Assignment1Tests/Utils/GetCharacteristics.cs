@@ -1,41 +1,43 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Reflection;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-namespace CareerCloud.UnitTests.Utils
+namespace CareerCloud.UnitTests.Assignment1Tests.Utils
 {
-
-    public static class GetCharacteristics 
+   public static class GetCharacteristics
     {
-        public static Type GetType(Type[] types, string name)
+        public static Type GetType(Type[] types,string name)
         {
             Type type = types.Where(t => t.Name == name).FirstOrDefault();
-            if (type == null)
+            if(type==null)
             {
-                Assert.Fail($"Type {name} not found.");
+                Assert.Fail($"Type{name} not found.");
             }
             return type;
-        }
 
-        public static PropertyInfo GetProperty(Type t, string propName)
+        }
+        public static PropertyInfo GetProperty(Type type,string propName)
         {
-            PropertyInfo propInfo = t.GetProperties().Where(i => i.Name == propName).FirstOrDefault();
-            if (propInfo == null)
+            PropertyInfo propInfo = type.GetProperties().Where(t => t.Name == propName).FirstOrDefault();
+            if(propInfo==null)
             {
-                Assert.Fail($"{propName} not found for {t.Name}");
+                Assert.Fail($"{propName} not found for {type.Name}");
             }
             return propInfo;
-        }
 
-        public static bool GetPropertyType(Type t, Type propType, string propName)
+        }
+        public static bool GetPropertyType(Type t,Type propType,string propName)
         {
-            PropertyInfo propinfo = GetProperty(t, propName);
-            return propinfo.PropertyType == propType;
-        }
+            PropertyInfo propInfo = GetProperty(t, propName);
+            return propInfo.PropertyType == propInfo;
 
+        }
         public static bool HasTable(Type type, string name)
         {
             var tableAttrib = (TableAttribute)type.GetCustomAttribute(typeof(TableAttribute));
@@ -45,12 +47,10 @@ namespace CareerCloud.UnitTests.Utils
             }
             return string.Equals(name, tableAttrib.Name);
         }
-
         public static bool HasKey(PropertyInfo prop)
         {
             return Attribute.IsDefined(prop, typeof(KeyAttribute));
         }
-
         public static bool HasColumn(PropertyInfo prop, string name)
         {
             if (!Attribute.IsDefined(prop, typeof(ColumnAttribute)))
@@ -60,7 +60,6 @@ namespace CareerCloud.UnitTests.Utils
             var attrib = (ColumnAttribute)prop.GetCustomAttributes(typeof(ColumnAttribute), false).FirstOrDefault();
             return string.Equals(name, attrib.Name);
         }
-
         public static bool ImplementsInterface(Type type, string interfaceName)
         {
             return type.GetInterfaces().Any(t => t.Name == interfaceName);

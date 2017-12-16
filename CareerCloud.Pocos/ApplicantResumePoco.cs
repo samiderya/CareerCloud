@@ -15,8 +15,8 @@ namespace CareerCloud.Pocos
         public Guid Id { get; set; }
         public Guid Applicant { get; set; }
         public string Resume { get; set; }
-        [Column("Last_Update")]
-        public DateTime LastUpdate { get; set; }
+        [Column("Last_Updated")]
+        public DateTime? LastUpdated { get; set; }
 
     }
 }

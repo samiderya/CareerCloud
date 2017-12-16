@@ -17,6 +17,6 @@ namespace CareerCloud.Pocos
         public string Major { get; set; }
         public byte importance { get; set; }
         [Column("Time_Stamp")]
-        public byte Time_Stamp { get; set; }
+        public byte[] Time_Stamp { get; set; }
     }
 }

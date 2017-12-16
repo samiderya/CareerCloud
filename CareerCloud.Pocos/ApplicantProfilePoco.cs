@@ -18,6 +18,8 @@ namespace CareerCloud.Pocos
         public decimal? CurrentSalary { get; set; }
         [Column("Current_Rate")]
         public decimal? CurrentRate { get; set; }
+        [Column("Currency")]
+        public string Currency { get; set; }
         [Column("Country_Code")]
         public string CountryCode { get; set; }
         [Column("State_Province_Code")]
@@ -29,6 +31,6 @@ namespace CareerCloud.Pocos
         [Column("Zip_Postal_Code")]
         public string ZipPostalCode { get; set; }
         [Column("Time_Stamp")]
-        public byte TimeStamp { get; set; }
+        public byte[] TimeStamp { get; set; }
     }
 }
