@@ -23,10 +23,10 @@ namespace CareerCloud.Pocos
         public string JobTitle { get; set; }
         [Column("Job_Description")]
         public string JobDescription { get; set; }
-        [Column("StartMonth")]
-        public byte StartMonth { get; set; }
+        [Column("Start_Month")]
+        public short StartMonth { get; set; }
         [Column("End_Month")]
-        public byte EndMonth { get; set; }
+        public short EndMonth { get; set; }
         [Column("Start_Year")]
         public int StartYear { get; set; }
         [Column("End_Year")]

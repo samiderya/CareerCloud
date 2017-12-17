@@ -14,7 +14,7 @@ namespace CareerCloud.Pocos
         [Key]
         public Guid Id { get; set; }
         public Guid Login { get; set; }
-        [Column("Start_IP")]
+        [Column("Source_IP")]
         public string SourceIP { get; set; }
         [Column("Logon_Date")]
         public DateTime LogonDate { get; set; }
