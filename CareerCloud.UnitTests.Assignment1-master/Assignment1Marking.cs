@@ -1,11 +1,11 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Reflection;
-using System.Linq;
-using CareerCloud.UnitTest.Assignment1Test.Utils;
 using CareerCloud.Pocos;
+using System.Linq;
+using System.Reflection;
+using CareerCloud.UnitTests.Utils;
 
-namespace CareerCloud.UnitTest.Assignment1Test
+namespace CareerCloud.UnitTests.Assingment1Tests
 {
     [TestCategory("Assignment 1 Poco Tests")]
     [TestClass]

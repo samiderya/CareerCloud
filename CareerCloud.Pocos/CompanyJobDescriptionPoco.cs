@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 namespace CareerCloud.Pocos
 {
     [Table("Company_Jobs_Descriptions")]
-   public class ComanyJobDescriptionPoco : IPoco
+   public class CompanyJobDescriptionPoco : IPoco
     {
         [Key]
         public Guid Id { get; set; }
         public Guid Job { get; set; }
         [Column("Job_Name")]
         public string JobName { get; set; }
-        [Column("Job_Description")]
-        public string JobDescription { get; set; }
+        [Column("Job_Descriptions")]
+        public string JobDescriptions { get; set; }
         [Column("Time_Stamp")]
         public byte[] TimeStamp { get; set; }
     }
