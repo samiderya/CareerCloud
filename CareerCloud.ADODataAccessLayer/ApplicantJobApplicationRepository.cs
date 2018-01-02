@@ -45,8 +45,6 @@ namespace CareerCloud.ADODataAccessLayer
             }
         }
 
-       
-
         public IList<ApplicantJobApplicationPoco> GetAll(params Expression<Func<ApplicantJobApplicationPoco, object>>[] navigationProperties)
         {
             using (var conn = new SqlConnection(_connString))

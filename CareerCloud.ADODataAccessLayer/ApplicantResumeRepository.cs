@@ -70,7 +70,7 @@ namespace CareerCloud.ADODataAccessLayer
                         Id = (Guid)reader["Id"],
                         Applicant = (Guid)reader["Applicant"],
                         Resume = reader["Resume"].ToString(),
-                        LastUpdated =!Convert.IsDBNull(reader["Last_Updated"])?Convert.ToDateTime(reader["Last_Updated"]):DateTime.Now
+                        LastUpdated =!Convert.IsDBNull(reader["Last_Updated"])?Convert.ToDateTime(reader["Last_Updated"]):DateTime.MinValue
                        
                     });
                 }
