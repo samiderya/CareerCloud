@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1A04EA3D-1A53-4F6A-A582-6EC11875D747}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CareerCloud.Pocos</RootNamespace>
-    <AssemblyName>CareerCloud.Pocos</AssemblyName>
+    <ProjectGuid>{8816F080-97A1-4737-B450-7B0E6F2AF8E8}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ConsoleApp1Test</RootNamespace>
+    <AssemblyName>ConsoleApp1Test</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,7 +33,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,27 +42,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicantEducationPoco.cs" />
-    <Compile Include="ApplicantJobApplicationPoco.cs" />
-    <Compile Include="ApplicantProfilePoco.cs" />
-    <Compile Include="ApplicantResumePoco.cs" />
-    <Compile Include="ApplicantWorkHistoryPoco.cs" />
-    <Compile Include="ApplicantSkillPoco.cs" />
-    <Compile Include="CompanyJobDescriptionPoco.cs" />
-    <Compile Include="CompanyDescriptionPoco.cs" />
-    <Compile Include="CompanyJobEducationPoco.cs" />
-    <Compile Include="CompanyJobPoco.cs" />
-    <Compile Include="CompanyJobSkillPoco.cs" />
-    <Compile Include="CompanyLocationPoco.cs" />
-    <Compile Include="CompanyProfilePoco.cs" />
-    <Compile Include="IPoco.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SecurityLoginsLogPoco.cs" />
-    <Compile Include="SecurityLoginPoco.cs" />
-    <Compile Include="SecurityLoginsRolePoco.cs" />
-    <Compile Include="SecurityRolePoco.cs" />
-    <Compile Include="SystemCountryCodePoco.cs" />
-    <Compile Include="SystemLanguageCodePoco.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CareerCloud.ADODataAccessLayer\CareerCloud.ADODataAccessLayer.csproj">
+      <Project>{d902be4b-b4e7-4a22-a1c4-ef5e59d61ce8}</Project>
+      <Name>CareerCloud.ADODataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CareerCloud.Pocos\CareerCloud.Pocos.csproj">
+      <Project>{1a04ea3d-1a53-4f6a-a582-6ec11875d747}</Project>
+      <Name>CareerCloud.Pocos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
