@@ -17,24 +17,9 @@ namespace CareerCloud.BusinessLogicLayer
         
         public override void Add(ApplicantProfilePoco[] pocos)
         {
-            Verify(pocos);
-            foreach (ApplicantProfilePoco poco in pocos)
-            {
-                //poco.Applicant = poco.Applicant;
-                //poco.Major = poco.Major;
-                //poco.CertificateDiploma = poco.CertificateDiploma;
-                //poco.StartDate = poco.StartDate;
-                //poco.CompletionDate = poco.CompletionDate;
-                //poco.CompletionPercent = poco.CompletionPercent;
-            }
+                Verify(pocos);
                 base.Add(pocos);
         }
-
-        public override bool Equals(object obj)
-        {
-            return base.Equals(obj);
-        }
-
         public override ApplicantProfilePoco Get(Guid id)
         {
             return base.Get(id);
@@ -45,18 +30,9 @@ namespace CareerCloud.BusinessLogicLayer
             return base.GetAll();
         }
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
-
         public override void Update(ApplicantProfilePoco[] pocos)
         {
+            Verify(pocos);
             base.Update(pocos);
         }
 
@@ -72,7 +48,7 @@ namespace CareerCloud.BusinessLogicLayer
                 {
                     exceptions.Add(new ValidationException(111, $"ApplicantProfileLogic CurrentSalary cannot be negative "));
                 }
-                else if (poco.CurrentRate<0)
+                if (poco.CurrentRate<0)
                 {
                     exceptions.Add(new ValidationException(112, $"ApplicantProfileLogic CurrentRate cannot be negative."));
                 }

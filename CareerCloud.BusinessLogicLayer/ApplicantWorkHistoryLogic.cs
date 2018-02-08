@@ -32,6 +32,7 @@ namespace CareerCloud.BusinessLogicLayer
 
         public override void Update(ApplicantWorkHistoryPoco[] pocos)
         {
+            Verify(pocos);
             base.Update(pocos);
         }
 

@@ -32,6 +32,7 @@ namespace CareerCloud.BusinessLogicLayer
 
         public override void Update(CompanyDescriptionPoco[] pocos)
         {
+            Verify(pocos);
             base.Update(pocos);
         }
 
@@ -42,11 +43,11 @@ namespace CareerCloud.BusinessLogicLayer
             List<ValidationException> exception = new List<ValidationException>();
             foreach (var poco in pocos)
             {
-                if(poco.CompanyDescription.Length<=2)
+                if( !string.IsNullOrEmpty(poco.CompanyDescription) &&  poco.CompanyDescription.Length<=2)
                 {
                     exception.Add(new  ValidationException(107, "CompanyDescription must be greater than 2 characters"));
                 }
-                else if(poco.CompanyName.Length<=2)
+                if(!string.IsNullOrEmpty(poco.CompanyName) && poco.CompanyName.Length<=2)
                 {
                     exception.Add(new ValidationException(106, "CompanyName must be greater than 2 characters"));
                 }

@@ -46,7 +46,7 @@ namespace CareerCloud.BusinessLogicLayer
             List<ValidationException> exceptions = new List<ValidationException>();
             foreach (var poco in pocos)
             {
-                if(poco.ApplicationDate>DateTime.Today)
+                if(poco.ApplicationDate > DateTime.Now)
                 {
                     exceptions.Add(new ValidationException(110, $"ApplicationDate for ApplicationJobApplication {poco.Id}  cannot be greater than today"));
                 }

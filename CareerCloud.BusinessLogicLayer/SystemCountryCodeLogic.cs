@@ -2,41 +2,31 @@
 using CareerCloud.Pocos;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CareerCloud.BusinessLogicLayer
 {
-    public class SystemCountryCodeLogic : BaseLogic<SystemCountryCodePoco>
+    public class SystemCountryCodeLogic 
     {
-        public SystemCountryCodeLogic(IDataRepository<SystemCountryCodePoco> repository) : base(repository)
+        readonly IDataRepository<SystemCountryCodePoco> _repository;
+        public SystemCountryCodeLogic(IDataRepository<SystemCountryCodePoco> repository) 
         {
+            this._repository = repository;
         }
 
-        public override void Add(SystemCountryCodePoco[] pocos)
+        public void Add(SystemCountryCodePoco[] pocos)
         {
-            Verify(pocos);
-            base.Add(pocos);
+              Verify(pocos);
+            _repository.Add(pocos);
         }
-
-        public override SystemCountryCodePoco Get(Guid id)
-        {
-            return base.Get(id);
-        }
-
-        public override List<SystemCountryCodePoco> GetAll()
-        {
-            return base.GetAll();
-        }
-
-        public override void Update(SystemCountryCodePoco[] pocos)
+      
+        
+        public void Update(SystemCountryCodePoco[] pocos)
         {
             Verify(pocos);
-            base.Update(pocos);
+            _repository.Update(pocos);
         }
 
-        protected override void Verify(SystemCountryCodePoco[] pocos)
+        protected void Verify(SystemCountryCodePoco[] pocos)
         {
             //Code Cannot be empty 900
             //Name Cannot be empty 901
@@ -48,7 +38,7 @@ namespace CareerCloud.BusinessLogicLayer
                 {
                     exceptions.Add(new ValidationException(900,"Code Cannot be empty"));
                 }
-                else if(string.IsNullOrEmpty(poco.Name))
+                if(string.IsNullOrEmpty(poco.Name))
                 {
                     exceptions.Add(new ValidationException(901,"Name Cannot be empty"));
                 }

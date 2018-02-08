@@ -8,35 +8,30 @@ using System.Threading.Tasks;
 
 namespace CareerCloud.BusinessLogicLayer
 {
-    public class SystemLanguageCodeLogic : BaseLogic<SystemLanguageCodePoco>
+    public class SystemLanguageCodeLogic 
     {
-        public SystemLanguageCodeLogic(IDataRepository<SystemLanguageCodePoco> repository) : base(repository)
+
+        readonly IDataRepository<SystemLanguageCodePoco> _repository;
+        public SystemLanguageCodeLogic(IDataRepository<SystemLanguageCodePoco> repository) 
         {
+            _repository = repository;
         }
 
-        public override void Add(SystemLanguageCodePoco[] pocos)
-        {
-            Verify(pocos);
-            base.Add(pocos);
-        }
-
-        public override SystemLanguageCodePoco Get(Guid id)
-        {
-            return base.Get(id);
-        }
-
-        public override List<SystemLanguageCodePoco> GetAll()
-        {
-            return base.GetAll();
-        }
-
-        public override void Update(SystemLanguageCodePoco[] pocos)
+        public void Add(SystemLanguageCodePoco[] pocos)
         {
             Verify(pocos);
-            base.Update(pocos);
+            _repository.Add(pocos);
+            
         }
 
-        protected override void Verify(SystemLanguageCodePoco[] pocos)
+
+        public void Update(SystemLanguageCodePoco[] pocos)
+        {
+             Verify(pocos);
+            _repository.Update(pocos);
+        }
+
+        protected void Verify(SystemLanguageCodePoco[] pocos)
         {
             //LanguageID Cannot be empty 1000
             //Name Cannot be empty 1001
@@ -49,11 +44,11 @@ namespace CareerCloud.BusinessLogicLayer
                 {
                     exceptions.Add(new ValidationException(1000, "LanguageID Cannot be empty"));
                 }
-                else if(string.IsNullOrEmpty(poco.Name))
+                if(string.IsNullOrEmpty(poco.Name))
                 {
-                    exceptions.Add(new ValidationException(1001,"Name Cannot be empty"));
+                    exceptions.Add(new ValidationException(1001, "Name Cannot be empty"));
                 }
-                else if(string.IsNullOrEmpty(poco.NativeName))
+                if(string.IsNullOrEmpty(poco.NativeName))
                 {
                     exceptions.Add(new ValidationException(1002, "NativeName Cannot be empty"));
                 }

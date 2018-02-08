@@ -50,15 +50,15 @@ namespace CareerCloud.BusinessLogicLayer
                 {
                     exception.Add(new ValidationException(101, "ApplicantSkillLogic StartMonth  Cannot be greater than 12"));
                 }
-                else if(poco.EndMonth>12)
+                if(poco.EndMonth>12)
                 {
                     exception.Add(new ValidationException(102, "ApplicantSkillLogic EndMonth    Cannot be greater than 12"));
                 }
-                else if(poco.StartYear<1900)
+                if(poco.StartYear<1900)
                 {
                     exception.Add(new ValidationException(103, "ApplicantSkillLogic StartYear   Cannot be less then 1900"));
                 }
-                else if(poco.EndYear<poco.StartYear)
+                if(poco.EndYear<poco.StartYear)
                 {
                     exception.Add(new ValidationException(104, "ApplicantSkillLogic EndYear Cannot be less then StartYear"));
                 }
@@ -67,8 +67,6 @@ namespace CareerCloud.BusinessLogicLayer
             {
                 throw new AggregateException(exception);
             }
-
-           
         }
     }
 }

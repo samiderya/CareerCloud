@@ -44,11 +44,11 @@ namespace CareerCloud.BusinessLogicLayer
             List<ValidationException> exception = new List<ValidationException>();
             foreach (var poco in pocos)
             {
-                if(poco.Major.Length<=2)
+                if(!string.IsNullOrEmpty(poco.Major) &&   poco.Major.Length<=2)
                 {
                     exception.Add(new ValidationException(200, "Major must be at least 2 characters"));
                 }
-                else if(poco.Importance<0)
+                if(poco.Importance<0)
                 {
                     exception.Add(new ValidationException(201, "Importance cannot be less than 0"));
                 }

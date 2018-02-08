@@ -18,12 +18,6 @@ namespace CareerCloud.BusinessLogicLayer
         public override void Add(ApplicantResumePoco[] pocos)
         {
             Verify(pocos);
-            foreach (var poco in pocos)
-            {
-                poco.Resume = poco.Resume;
-              
-
-            }
             base.Add(pocos);
         }
 
@@ -41,17 +35,6 @@ namespace CareerCloud.BusinessLogicLayer
         {
             return base.GetAll();
         }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
-        public override string ToString()
-        {
-            return base.ToString();
-        }
-
         public override void Update(ApplicantResumePoco[] pocos)
         {
             Verify(pocos);
@@ -66,11 +49,13 @@ namespace CareerCloud.BusinessLogicLayer
             {
                 if(string.IsNullOrEmpty(poco.Resume))
                 {
-                    exceptions.Add(new ValidationException(107, $"Resume for ApplicantResumeLogic cannot be null"));
+                    exceptions.Add(new ValidationException(113, $"Resume for ApplicantResumeLogic cannot be null"));
                 }
-
             }
-            base.Verify(pocos);
+            if(exceptions.Count>0)
+            {
+                throw new AggregateException(exceptions);
+            }
         }
     }
 }

@@ -3,14 +3,12 @@ using CareerCloud.Pocos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CareerCloud.BusinessLogicLayer
 {
    public abstract class BaseLogic<TPoco>
-        where TPoco: IPoco
-    {
+        where TPoco:IPoco
+         {
         protected IDataRepository<TPoco> _repository;
         public BaseLogic(IDataRepository<TPoco> repository)
         {

@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 namespace CareerCloud.Pocos
 {
     [Table("System_Language_Codes")]
-    public class SystemLanguageCodePoco 
+    public class SystemLanguageCodePoco
     {
         [Key]
         [Column("LanguageID")]
         public string LanguageID { get; set; }
+
         public string Name { get; set; }
+
         [Column("Native_Name")]
         public string NativeName { get; set; }
     }

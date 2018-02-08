@@ -18,19 +18,14 @@ namespace CareerCloud.BusinessLogicLayer
         public override void Add(ApplicantEducationPoco[] pocos)
         {
             Verify(pocos);
-            foreach (ApplicantEducationPoco poco in pocos)
-            {
-                poco.Applicant = poco.Applicant;
-                poco.Major = poco.Major;
-                poco.CertificateDiploma = poco.CertificateDiploma;
-                poco.StartDate = poco.StartDate;
-                poco.CompletionDate = poco.CompletionDate;
-                poco.CompletionPercent = poco.CompletionPercent;
-            }
             base.Add(pocos);
         }
 
-      
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
+
         public override ApplicantEducationPoco Get(Guid id)
         {
             return base.Get(id);
@@ -41,7 +36,16 @@ namespace CareerCloud.BusinessLogicLayer
             return base.GetAll();
         }
 
-      
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
         public override void Update(ApplicantEducationPoco[] pocos)
         {
             Verify(pocos);
@@ -57,11 +61,11 @@ namespace CareerCloud.BusinessLogicLayer
                 {
                     exceptions.Add(new ValidationException(107, $"Major for ApplicationEducation {poco.Id} Cannot be empty or less than 3 characters"));
                 }
-                else if (poco.StartDate > DateTime.Now)
+                if (poco.StartDate.HasValue && (poco.StartDate.Value > DateTime.Now))
                 {
                     exceptions.Add(new ValidationException(108, $"StartDate for ApplicationEducation {poco.Id} Cannot be greater than today."));
                 }
-                else if(poco.CompletionDate < poco.StartDate)
+                if( poco.CompletionDate.HasValue && poco.StartDate.HasValue && (poco.CompletionDate.Value < poco.StartDate))
                 {
                     exceptions.Add(new ValidationException(109, $"CompletionDate for ApplicationEducation {poco.Id} CompletionDate cannot be earlier than StartDate."));
                 }

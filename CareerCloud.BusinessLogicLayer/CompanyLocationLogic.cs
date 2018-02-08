@@ -32,6 +32,7 @@ namespace CareerCloud.BusinessLogicLayer
 
         public override void Update(CompanyLocationPoco[] pocos)
         {
+            Verify(pocos);
             base.Update(pocos);
         }
 
@@ -50,19 +51,19 @@ namespace CareerCloud.BusinessLogicLayer
                 {
                     exception.Add(new ValidationException(500, "CountryCode cannot be empty"));
                 }
-                else if(string.IsNullOrEmpty(poco.Province))
+                if(string.IsNullOrEmpty(poco.Province))
                 {
                     exception.Add(new ValidationException(501, "Province cannot be empty"));
                 }
-                else if(string.IsNullOrEmpty(poco.Street))
+                if(string.IsNullOrEmpty(poco.Street))
                 {
                     exception.Add(new ValidationException(502, "Street cannot be empty"));
                 }
-                else if(string.IsNullOrEmpty(poco.City))
+                if(string.IsNullOrEmpty(poco.City))
                 {
                     exception.Add(new ValidationException(503, "City cannot be empty"));
                 }
-                else if(string.IsNullOrEmpty(poco.PostalCode))
+                if(string.IsNullOrEmpty(poco.PostalCode))
                 {
                     exception.Add(new ValidationException(504, "PostalCode cannot be empty"));
                 }

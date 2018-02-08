@@ -50,6 +50,7 @@
     <Compile Include="CompanyDescriptionLogic.cs" />
     <Compile Include="CompanyJobDescriptionLogic.cs" />
     <Compile Include="CompanyJobEducationLogic.cs" />
+    <Compile Include="CompanyJobLogic.cs" />
     <Compile Include="CompanyJobSkillLogic.cs" />
     <Compile Include="CompanyLocationLogic.cs" />
     <Compile Include="CompanyProfileLogic.cs" />
