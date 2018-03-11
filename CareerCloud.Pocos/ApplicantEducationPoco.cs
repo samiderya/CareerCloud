@@ -13,18 +13,31 @@ namespace CareerCloud.Pocos
     {
         [Key]
         public System.Guid Id { get; set; }
+
+        [Required]
         public Guid Applicant { get; set; }
+
+        [Required(ErrorMessage ="*")]
+        [StringLength(100,ErrorMessage ="Cannot be more than 100 character")]
         public string Major { get; set; }
+
+        [StringLength(100, ErrorMessage = "Cannot be more than 100 character")]
         [Column("Certificate_Diploma")]
         public string CertificateDiploma { get; set; }
+
         [Column("Start_Date")]
         public DateTime? StartDate { get; set; }
-        [Column("Completion_Date")]
+
+        [Column(name:"Completion_Date",TypeName = "DateTime")]
         public DateTime? CompletionDate { get; set; }
+
         [Column("Completion_Percent")]
         public byte? CompletionPercent { get; set; }
-        [Column("Time_Stamp")]
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [Column(name:"Time_Stamp",TypeName ="timestamp")]
         public byte[] TimeStamp { get; set; }
+
 
     }
 }

@@ -13,12 +13,21 @@ namespace CareerCloud.Pocos
     {
         [Key]
         public Guid Id { get; set; }
+        [Required]
         public Guid Job { get; set; }
+
+        [StringLength(100)]
         [Column("Job_Name")]
         public string JobName { get; set; }
+
+        [StringLength(1000)]
         [Column("Job_Descriptions")]
         public string JobDescriptions { get; set; }
-        [Column("Time_Stamp")]
+
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [Column(name: "Time_Stamp", TypeName = "timestamp")]
         public byte[] TimeStamp { get; set; }
+
     }
 }

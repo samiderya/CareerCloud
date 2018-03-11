@@ -13,12 +13,23 @@ namespace CareerCloud.Pocos
     {
         [Key]
         public Guid Id { get; set; }
+
+        [Required]
         public Guid Login { get; set; }
+
+        [StringLength(15)]
+        [Required]
         [Column("Source_IP")]
         public string SourceIP { get; set; }
+
+        [Required]
         [Column("Logon_Date")]
         public DateTime LogonDate { get; set; }
+
+        [Required]
         [Column("Is_Succesful")]
         public bool IsSuccesful { get; set; }
+
+        public virtual SecurityLoginPoco SecurityLogin { get; set; }
     }
 }

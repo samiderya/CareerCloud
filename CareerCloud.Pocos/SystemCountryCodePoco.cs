@@ -13,6 +13,9 @@ namespace CareerCloud.Pocos
     {
         [Key]
         public string Code { get; set; }
+
+        [StringLength(50)]
+        [Required]
         public string Name { get; set; }
     }
 }

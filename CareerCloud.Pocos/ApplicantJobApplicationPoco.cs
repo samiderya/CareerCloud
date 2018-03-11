@@ -13,11 +13,23 @@ namespace CareerCloud.Pocos
     {
         [Key]
         public Guid Id { get; set; }
+
+        [Required]
         public Guid Applicant { get; set; }
+
+        [Required]
         public Guid Job { get; set; }
+
+        [DataType(DataType.DateTime)]
+        [Required]
         [Column("Application_Date")]
         public DateTime ApplicationDate { get; set; }
+
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         [Column("Time_Stamp")]
         public byte[] TimeStamp { get; set; }
+
+        public virtual ApplicantProfilePoco ApplicantProfile { get; set; }
     }
 }
